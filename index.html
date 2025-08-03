@@ -120,11 +120,11 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out;
             position: relative;
@@ -154,11 +154,13 @@
         }
 
         .link-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 10px;
             object-fit: cover;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+            filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
         }
 
         .link-content {
@@ -169,13 +171,7 @@
             color: white;
             font-size: 1.3em;
             font-weight: bold;
-            margin-bottom: 5px;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        .link-description {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9em;
         }
 
         /* Animazioni */
@@ -207,13 +203,14 @@
             }
             
             .link-item {
-                padding: 15px;
-                gap: 15px;
+                padding: 12px;
+                gap: 12px;
             }
             
             .link-icon {
-                width: 40px;
-                height: 40px;
+                width: 45px;
+                height: 45px;
+                padding: 8px;
             }
             
             .link-title {
@@ -258,37 +255,31 @@
         const SOCIAL_LINKS = [
             {
                 title: "Instagram",
-                description: "Foto e storie quotidiane",
                 url: "https://instagram.com/tuousername",
                 icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg"
             },
             {
                 title: "Twitter",
-                description: "Pensieri in 280 caratteri",
                 url: "https://twitter.com/tuousername",
                 icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg"
             },
             {
                 title: "LinkedIn",
-                description: "Profilo professionale",
                 url: "https://linkedin.com/in/tuousername",
                 icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
             },
             {
                 title: "GitHub",
-                description: "I miei progetti di codice",
                 url: "https://github.com/tuousername",
                 icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
             },
             {
                 title: "YouTube",
-                description: "Video e tutorial",
                 url: "https://youtube.com/@tuousername",
                 icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg"
             },
             {
                 title: "Email",
-                description: "Contattami direttamente",
                 url: "mailto:tua@email.com",
                 icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg"
             }
@@ -357,7 +348,6 @@
                     <img src="${link.icon}" alt="${link.title}" class="link-icon">
                     <div class="link-content">
                         <div class="link-title">${link.title}</div>
-                        <div class="link-description">${link.description}</div>
                     </div>
                 `;
                 

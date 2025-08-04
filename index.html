@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Miei Link Social</title>
+    <title>Saiph | Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,14 +13,14 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             background: linear-gradient(135deg, #0c0c2a 0%, #1a1a3e 50%, #2d1b69 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Stelle animate */
+        /* Animated stars */
         .stars {
             position: fixed;
             top: 0;
@@ -57,7 +58,7 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* Container principale */
+        /* Main container */
         .container {
             position: relative;
             z-index: 2;
@@ -69,7 +70,7 @@
             padding: 40px 20px;
         }
 
-        /* Profilo */
+        /* Profile */
         .profile {
             text-align: center;
             margin-bottom: 40px;
@@ -102,6 +103,7 @@
         .profile p {
             color: rgba(255, 255, 255, 0.8);
             font-size: 1.2em;
+            font-style: italic;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
@@ -114,7 +116,7 @@
             gap: 20px;
         }
 
-        /* Singolo link */
+        /* Single link */
         .link-item {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -174,7 +176,7 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        /* Animazioni */
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -220,20 +222,20 @@
     </style>
 </head>
 <body>
-    <!-- Stelle animate -->
+    <!-- Animated stars -->
     <div class="stars" id="stars"></div>
 
     <div class="container">
-        <!-- Sezione Profilo -->
+        <!-- Profile information -->
         <div class="profile">
-            <img src="https://via.placeholder.com/150x150/6366f1/ffffff?text=TU" alt="Foto Profilo" class="profile-image" id="profileImage">
-            <h1 id="profileName">Il Tuo Nome</h1>
+            <img src="https://raw.githubusercontent.com/StygianStar/bio/main/images/profile.png" alt="Foto profilo" class="profile-image" id="profileImage">
+            <h1 id="profileName">Saiph</h1>
             <p id="profileBio">La tua bio personalizzata</p>
         </div>
 
-        <!-- Container dei Link -->
+        <!-- Links container -->
         <div class="links-container" id="linksContainer">
-            <!-- I link verranno generati dinamicamente -->
+            <!-- Links will be generated dynamically -->
         </div>
 
         <div class="footer">
@@ -242,59 +244,54 @@
     </div>
 
     <script>
-        // ========== CONFIGURAZIONE - MODIFICA QUESTI PARAMETRI ==========
+        // ========== CONFIGURATION ==========
         
-        // Informazioni del profilo
+        // Profile information
         const PROFILE_CONFIG = {
-            name: "saiph",
-            bio: "smashing through both karma and fate!",
-            image: "https://via.placeholder.com/150x150/6366f1/ffffff?text=TU"
+            name: "Saiph",
+            bio: "Content creator • Tech enthusiast • Star lover",
+            image: "https://raw.githubusercontent.com/StygianStar/bio/main/images/profile.png"
         };
 
-        // Links social
+        // Social links
         const SOCIAL_LINKS = [
             {
-                title: "Instagram",
-                url: "https://instagram.com/tuousername",
-                icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg"
+                title: "Telegram",
+                url: "https://t.me/saiph_uwu",
+                icon: "https://raw.githubusercontent.com/StygianStar/bio/main/images/telegram.svg"
             },
             {
                 title: "Twitter",
-                url: "https://twitter.com/tuousername",
-                icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg"
+                url: "https://x.com/saiph_no_zaza",
+                icon: "https://raw.githubusercontent.com/StygianStar/bio/main/images/twitter.svg"
             },
             {
-                title: "LinkedIn",
-                url: "https://linkedin.com/in/tuousername",
-                icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/bluesky.svg"
+                title: "BlueSky",
+                url: "https://bsky.app/profile/saiphdeer.bsky.social",
+                icon: "https://raw.githubusercontent.com/StygianStar/bio/main/images/bluesky.svg"
+            },
+            {
+                title: "Fur Affinity",
+                url: "https://www.furaffinity.net/user/saiphstars",
+                icon: "https://raw.githubusercontent.com/StygianStar/bio/main/images/fur-affinity.svg"
             },
             {
                 title: "GitHub",
-                url: "https://github.com/tuousername",
-                icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
-            },
-            {
-                title: "YouTube",
-                url: "https://youtube.com/@tuousername",
-                icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg"
-            },
-            {
-                title: "Email",
-                url: "mailto:tua@email.com",
-                icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg"
+                url: "https://github.com/StygianStar",
+                icon: "https://raw.githubusercontent.com/StygianStar/bio/main/images/github.svg"
             }
         ];
 
-        // Configurazione stelle
+        // Stars configuration
         const STARS_CONFIG = {
-            count: 200, // Numero di stelle
-            minDelay: 0, // Ritardo minimo animazione (secondi)
-            maxDelay: 6  // Ritardo massimo animazione (secondi)
+            count: 200, // Number of stars
+            minDelay: 0, // Minimum animation delay (seconds)
+            maxDelay: 6  // Maximum animation delay (seconds)
         };
 
-        // ========== FINE CONFIGURAZIONE ==========
+        // ========== END CONFIGURATION ==========
 
-        // Funzione per creare le stelle
+        // Function to create stars
         function createStars() {
             const starsContainer = document.getElementById('stars');
             
@@ -302,35 +299,35 @@
                 const star = document.createElement('div');
                 star.className = 'star';
                 
-                // Dimensione casuale
+                // Random size
                 const sizes = ['small', 'medium', 'large'];
                 const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
                 star.classList.add(randomSize);
                 
-                // Posizione casuale
+                // Random position
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
                 
-                // Ritardo animazione casuale
+                // Random animation delay
                 const delay = Math.random() * (STARS_CONFIG.maxDelay - STARS_CONFIG.minDelay) + STARS_CONFIG.minDelay;
                 star.style.animationDelay = delay + 's';
                 
-                // Durata animazione casuale
-                const duration = Math.random() * 3 + 2; // tra 2 e 5 secondi
+                // Random animation duration
+                const duration = Math.random() * 3 + 2; // Between 2 and 5 seconds
                 star.style.animationDuration = duration + 's';
                 
                 starsContainer.appendChild(star);
             }
         }
 
-        // Funzione per impostare le informazioni del profilo
+        // Function to set profile information
         function setupProfile() {
             document.getElementById('profileName').textContent = PROFILE_CONFIG.name;
             document.getElementById('profileBio').textContent = PROFILE_CONFIG.bio;
             document.getElementById('profileImage').src = PROFILE_CONFIG.image;
         }
 
-        // Funzione per creare i link
+        // Function to create links
         function createLinks() {
             const container = document.getElementById('linksContainer');
             
@@ -341,7 +338,7 @@
                 linkElement.target = '_blank';
                 linkElement.rel = 'noopener noreferrer';
                 
-                // Ritardo animazione per effetto scaglionato
+                // Animation delay for staggered effect
                 linkElement.style.animationDelay = (index * 0.1) + 's';
                 
                 linkElement.innerHTML = `
@@ -355,14 +352,14 @@
             });
         }
 
-        // Inizializzazione
+        // Initialization
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
             setupProfile();
             createLinks();
         });
 
-        // Effetto parallax leggero per le stelle
+        // Light parallax effect for stars
         document.addEventListener('mousemove', function(e) {
             const stars = document.querySelectorAll('.star');
             const x = e.clientX / window.innerWidth;

@@ -8,6 +8,7 @@ Created by me. **Personal use is prohibited without my explicit authorization.**
 
 ### Images:
 * [BUNNYMOTHMARTYR](https://bunnymothmartyr.carrd.co/) (Profile picture)
+* [MadSonPink](https://linktr.ee/NeroConiglio) (Preview picture)
 
 ### Icons:
 * [Font Awesome (LeviSnoot)](https://github.com/FortAwesome/Font-Awesome/issues/16573#issuecomment-1224236661) (Fur Affinity icon)

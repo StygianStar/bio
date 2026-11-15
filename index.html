@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiph | Links</title>
+    <meta name="description" content="✨ Born from stardust, made to shine among the stars ✨">
+    <meta name="theme-color" content="#0c0c2a">
+
+    <!-- Open Graph / social preview -->
     <meta property="og:title" content="Saiph | Links">
     <meta property="og:description" content="✨ Born from stardust, made to shine among the stars ✨">
     <meta property="og:image" content="https://stygianstar.github.io/bio/images/preview-image.png">
     <meta property="og:url" content="https://stygianstar.github.io/bio/">
     <meta property="og:type" content="website">
-    <title>Saiph | Links</title>
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -22,19 +33,15 @@
             font-family: 'Space Grotesk', sans-serif;
             background: linear-gradient(135deg, #0c0c2a 0%, #1a1a3e 50%, #2d1b69 100%);
             min-height: 100vh;
-            min-height: 100dvh; // Dynamic viewport height on mobile
+            min-height: 100dvh; /* Dynamic viewport height on mobile */
             position: relative;
             overflow-x: hidden;
         }
 
-        // Animated stars
+        /* Animated stars */
         .stars {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            height: 100dvh; // Dynamic viewport height on mobile
+            inset: 0;
             z-index: 1;
             pointer-events: none;
         }
@@ -44,6 +51,7 @@
             background: white;
             border-radius: 50%;
             animation: twinkle 3s infinite;
+            transition: translate 0.2s ease-out; /* Smooth parallax movement */
         }
 
         .star.small {
@@ -71,6 +79,7 @@
             position: relative;
             z-index: 2;
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -82,7 +91,7 @@
         .profile {
             text-align: center;
             margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 1s ease-out both;
         }
 
         .profile-image {
@@ -93,7 +102,7 @@
             margin-bottom: 20px;
             object-fit: cover;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .profile-image:hover {
@@ -127,6 +136,7 @@
         /* Single link */
         .link-item {
             background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
@@ -136,11 +146,12 @@
             align-items: center;
             gap: 15px;
             transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 1s ease-out both; /* "both": hidden until its delay starts */
             position: relative;
             overflow: hidden;
         }
 
+        /* Light sweep effect on hover */
         .link-item::before {
             content: '';
             position: absolute;
@@ -152,22 +163,30 @@
             transition: left 0.5s ease;
         }
 
-        .link-item:hover {
+        .link-item:hover,
+        .link-item:focus-visible {
             transform: translateY(-5px) scale(1.02);
             background: rgba(255, 255, 255, 0.2);
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        .link-item:hover::before {
+        .link-item:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 3px;
+        }
+
+        .link-item:hover::before,
+        .link-item:focus-visible::before {
             left: 100%;
         }
 
         .link-icon {
             width: 60px;
             height: 60px;
+            flex-shrink: 0;
             border-radius: 10px;
-            object-fit: cover;
+            object-fit: contain;
             filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
@@ -184,7 +203,7 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        // Animations
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -196,64 +215,70 @@
             }
         }
 
-        // Footer
+        /* Footer */
         .footer {
-            position: relative;
-            z-index: 2;
             text-align: center;
             margin-top: 40px;
             color: rgba(255, 255, 255, 0.5);
             font-size: 0.9em;
         }
 
-        // Responsive
+        /* Responsive */
         @media (max-width: 768px) {
             .profile h1 {
                 font-size: 2em;
             }
-            
+
             .link-item {
                 padding: 12px;
                 gap: 12px;
             }
-            
+
             .link-icon {
                 width: 45px;
                 height: 45px;
                 padding: 8px;
             }
-            
+
             .link-title {
                 font-size: 1.1em;
+            }
+        }
+
+        /* Respect the user's "reduce motion" system setting */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
             }
         }
     </style>
 </head>
 <body>
-    // Animated stars
-    <div class="stars" id="stars"></div>
+    <!-- Animated stars -->
+    <div class="stars" id="stars" aria-hidden="true"></div>
 
-    <div class="container">
-        // Profile information
-        <div class="profile">
-            <img src="https://raw.githubusercontent.com/StygianStar/bio/main/images/profile.png" alt="Foto profilo" class="profile-image" id="profileImage">
+    <main class="container">
+        <!-- Profile information -->
+        <header class="profile">
+            <img src="https://raw.githubusercontent.com/StygianStar/bio/main/images/profile.png"
+                 alt="Profile picture" class="profile-image" id="profileImage"
+                 width="150" height="150">
             <h1 id="profileName">Saiph</h1>
-            <p id="profileBio">Bleat!</p>
-        </div>
+            <p id="profileBio">Poor nerd • Professional bleater • Star lover • 🇮🇹/🇧🇪</p>
+        </header>
 
-        // Links container
-        <div class="links-container" id="linksContainer">
-            // Links will be generated dynamically
-        </div>
+        <!-- Links container (links are generated dynamically) -->
+        <nav class="links-container" id="linksContainer" aria-label="Social links"></nav>
 
-        <div class="footer">
+        <footer class="footer">
             <p>✨ Born from stardust, made to shine among the stars ✨</p>
-        </div>
-    </div>
+        </footer>
+    </main>
 
     <script>
         // ========== CONFIGURATION ==========
-        
+
         // Profile information
         const PROFILE_CONFIG = {
             name: "Saiph",
@@ -292,94 +317,121 @@
 
         // Stars configuration
         const STARS_CONFIG = {
-            count: 200, // Number of stars
-            minDelay: 0, // Minimum animation delay (seconds)
-            maxDelay: 6  // Maximum animation delay (seconds)
+            count: 200,          // Number of stars
+            minDelay: 0,         // Minimum animation delay (seconds)
+            maxDelay: 6,         // Maximum animation delay (seconds)
+            parallaxStrength: 8  // Max parallax shift in px (multiplied by 1-3 per depth layer)
         };
 
         // ========== END CONFIGURATION ==========
 
-        // Function to create stars
+        const stars = [];
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Create the stars
         function createStars() {
             const starsContainer = document.getElementById('stars');
-            
+            const sizes = ['small', 'medium', 'large'];
+            const fragment = document.createDocumentFragment();
+
             for (let i = 0; i < STARS_CONFIG.count; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                
+
                 // Random size
-                const sizes = ['small', 'medium', 'large'];
-                const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
-                star.classList.add(randomSize);
-                
+                star.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+
                 // Random position
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
-                
+
                 // Random animation delay
                 const delay = Math.random() * (STARS_CONFIG.maxDelay - STARS_CONFIG.minDelay) + STARS_CONFIG.minDelay;
                 star.style.animationDelay = delay + 's';
-                
-                // Random animation duration
-                const duration = Math.random() * 3 + 2; // Between 2 and 5 seconds
-                star.style.animationDuration = duration + 's';
-                
-                starsContainer.appendChild(star);
+
+                // Random animation duration (between 2 and 5 seconds)
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+
+                stars.push(star);
+                fragment.appendChild(star);
             }
+
+            starsContainer.appendChild(fragment);
         }
 
-        // Function to set profile information
+        // Set the profile information
         function setupProfile() {
             document.getElementById('profileName').textContent = PROFILE_CONFIG.name;
             document.getElementById('profileBio').textContent = PROFILE_CONFIG.bio;
             document.getElementById('profileImage').src = PROFILE_CONFIG.image;
         }
 
-        // Function to create links
+        // Create the links (built with DOM methods, no innerHTML)
         function createLinks() {
             const container = document.getElementById('linksContainer');
-            
+
             SOCIAL_LINKS.forEach((link, index) => {
                 const linkElement = document.createElement('a');
                 linkElement.className = 'link-item';
                 linkElement.href = link.url;
                 linkElement.target = '_blank';
-                linkElement.rel = 'noopener noreferrer';
-                
+                linkElement.rel = 'me noopener noreferrer';
+
                 // Animation delay for staggered effect
                 linkElement.style.animationDelay = (index * 0.1) + 's';
-                
-                linkElement.innerHTML = `
-                    <img src="${link.icon}" alt="${link.title}" class="link-icon">
-                    <div class="link-content">
-                        <div class="link-title">${link.title}</div>
-                    </div>
-                `;
-                
+
+                const icon = document.createElement('img');
+                icon.src = link.icon;
+                icon.alt = ''; // Decorative: the title is already shown next to it
+                icon.className = 'link-icon';
+                icon.width = 60;
+                icon.height = 60;
+
+                const content = document.createElement('div');
+                content.className = 'link-content';
+
+                const title = document.createElement('div');
+                title.className = 'link-title';
+                title.textContent = link.title;
+
+                content.appendChild(title);
+                linkElement.append(icon, content);
                 container.appendChild(linkElement);
             });
         }
 
+        // Light parallax effect for stars.
+        // Uses the "translate" property, which combines with the "transform: scale()"
+        // of the twinkle animation instead of being overridden by it.
+        function setupParallax() {
+            if (reducedMotion) return;
+
+            let ticking = false;
+
+            document.addEventListener('mousemove', function (e) {
+                if (ticking) return;
+                ticking = true;
+
+                requestAnimationFrame(() => {
+                    const x = e.clientX / window.innerWidth - 0.5;
+                    const y = e.clientY / window.innerHeight - 0.5;
+
+                    stars.forEach((star, index) => {
+                        const speed = (index % 3 + 1) * STARS_CONFIG.parallaxStrength;
+                        star.style.translate = `${x * speed}px ${y * speed}px`;
+                    });
+
+                    ticking = false;
+                });
+            });
+        }
+
         // Initialization
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             createStars();
             setupProfile();
             createLinks();
-        });
-
-        // Light parallax effect for stars
-        document.addEventListener('mousemove', function(e) {
-            const stars = document.querySelectorAll('.star');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            stars.forEach((star, index) => {
-                const speed = (index % 3 + 1) * 0.5;
-                const xOffset = (x - 0.5) * speed;
-                const yOffset = (y - 0.5) * speed;
-                
-                star.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(${star.style.transform.includes('scale') ? star.style.transform.match(/scale\(([\d.]+)\)/)[1] : 1})`;
-            });
+            setupParallax();
         });
     </script>
 </body>

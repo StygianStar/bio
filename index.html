@@ -22,19 +22,19 @@
             font-family: 'Space Grotesk', sans-serif;
             background: linear-gradient(135deg, #0c0c2a 0%, #1a1a3e 50%, #2d1b69 100%);
             min-height: 100vh;
-            min-height: 100dvh; /* Dynamic viewport height on mobile */
+            min-height: 100dvh; // Dynamic viewport height on mobile
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Animated stars */
+        // Animated stars
         .stars {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            height: 100dvh; /* Dynamic viewport height on mobile */
+            height: 100dvh; // Dynamic viewport height on mobile
             z-index: 1;
             pointer-events: none;
         }
@@ -184,7 +184,7 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        /* Animations */
+        // Animations
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -196,7 +196,7 @@
             }
         }
 
-        /* Footer */
+        // Footer
         .footer {
             position: relative;
             z-index: 2;
@@ -206,7 +206,7 @@
             font-size: 0.9em;
         }
 
-        /* Responsive */
+        // Responsive
         @media (max-width: 768px) {
             .profile h1 {
                 font-size: 2em;
@@ -230,20 +230,20 @@
     </style>
 </head>
 <body>
-    <!-- Animated stars -->
+    // Animated stars
     <div class="stars" id="stars"></div>
 
     <div class="container">
-        <!-- Profile information -->
+        // Profile information
         <div class="profile">
             <img src="https://raw.githubusercontent.com/StygianStar/bio/main/images/profile.png" alt="Foto profilo" class="profile-image" id="profileImage">
             <h1 id="profileName">Saiph</h1>
             <p id="profileBio">Bleat!</p>
         </div>
 
-        <!-- Links container -->
+        // Links container
         <div class="links-container" id="linksContainer">
-            <!-- Links will be generated dynamically -->
+            // Links will be generated dynamically
         </div>
 
         <div class="footer">
